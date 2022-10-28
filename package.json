@@ -1,0 +1,23 @@
+{
+  "name": "basic-apollo-federation-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -k npm:dev:*",
+    "dev:order": "nodemon -r esm order/index.js",
+    "dev:products": "nodemon -r esm products/index.js",
+    "dev:availability": "nodemon -r esm availability/index.js",
+    "dev:gateway": "wait-on tcp:4001 tcp:4002 tcp:4003 && nodemon -r esm ./index.js"
+  },
+  "dependencies": {
+    "@apollo/subgraph": "^2.1.3",
+    "@apollo/gateway": "^2.1.3",
+    "apollo-server": "^3.10.3",
+    "concurrently": "^5.1.0",
+    "esm": "^3.2.25",
+    "graphql": "^16.6.0",
+    "nodemon": "^2.0.2",
+    "wait-on": "^4.0.1"
+  }
+}
